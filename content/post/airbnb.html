@@ -825,7 +825,17 @@ def make_preds(classifier):
 
 ada_model,ada_pred=make_preds(AdaBoostClassifier())
 et_model,et_pred=make_preds(ExtraTreesClassifier())</code></pre>
-<p>AdaBoostClassifier(algorithm=‘SAMME.R’, base_estimator=None, learning_rate=1.0, n_estimators=50, random_state=None) model score: 0.8756880841395142 ExtraTreesClassifier(bootstrap=False, class_weight=None, criterion=‘gini’, max_depth=None, max_features=‘auto’, max_leaf_nodes=None, min_impurity_decrease=0.0, min_impurity_split=None, min_samples_leaf=1, min_samples_split=2, min_weight_fraction_leaf=0.0, n_estimators=10, n_jobs=None, oob_score=False, random_state=None, verbose=0, warm_start=False) model score: 0.8523342156426413</p>
+<p>AdaBoostClassifier(algorithm='SAMME.R', base_estimator=None, learning_rate=1.0,
+                   n_estimators=50, random_state=None)
+model score:  0.8756880841395142
+ExtraTreesClassifier(bootstrap=False, class_weight=None, criterion='gini',
+                     max_depth=None, max_features='auto', max_leaf_nodes=None,
+                     min_impurity_decrease=0.0, min_impurity_split=None,
+                     min_samples_leaf=1, min_samples_split=2,
+                     min_weight_fraction_leaf=0.0, n_estimators=10, n_jobs=None,
+                     oob_score=False, random_state=None, verbose=0,
+                     warm_start=False)
+model score:  0.8523342156426413</p>
 <p>Below I will write a function to compare the distribution of predictions produced by each model above to the actual distribution of the outcome variable (country destination) in the dataset. It first gets the value counts of each country in the original and predicted datasets. It then adds % columns.</p>
 <pre class="python"><code>def compare_preds(y_pred):
     preds_df = pd.DataFrame(data = y_pred, columns = [&#39;y_pred&#39;], index = X_test.index.copy())
@@ -1918,7 +1928,17 @@ et_model,et_pred=make_preds(ExtraTreesClassifier())
 ada_preds_df=compare_preds(ada_pred)
 et_preds_df=compare_preds(et_pred)
 </code></pre>
-<p>AdaBoostClassifier(algorithm=‘SAMME.R’, base_estimator=None, learning_rate=1.0, n_estimators=100, random_state=None) model score: 0.8748213909254878 ExtraTreesClassifier(bootstrap=False, class_weight=None, criterion=‘gini’, max_depth=None, max_features=‘auto’, max_leaf_nodes=None, min_impurity_decrease=0.0, min_impurity_split=None, min_samples_leaf=1, min_samples_split=2, min_weight_fraction_leaf=0.0, n_estimators=10, n_jobs=None, oob_score=False, random_state=None, verbose=0, warm_start=False) model score: 0.8522639432198824</p>
+<p>AdaBoostClassifier(algorithm='SAMME.R', base_estimator=None, learning_rate=1.0,
+                   n_estimators=100, random_state=None)
+model score:  0.8748213909254878
+ExtraTreesClassifier(bootstrap=False, class_weight=None, criterion='gini',
+                     max_depth=None, max_features='auto', max_leaf_nodes=None,
+                     min_impurity_decrease=0.0, min_impurity_split=None,
+                     min_samples_leaf=1, min_samples_split=2,
+                     min_weight_fraction_leaf=0.0, n_estimators=10, n_jobs=None,
+                     oob_score=False, random_state=None, verbose=0,
+                     warm_start=False)
+model score:  0.8522639432198824</p>
 <p>Count number of rows with each unique value of outcome variable (destination)</p>
 <pre class="python"><code>from sklearn.metrics import classification_report
 print(classification_report(y_test, ada_pred))
@@ -1967,7 +1987,58 @@ et_values=sorted(zip(X_train.columns, et_model[&#39;classifier&#39;].feature_imp
 
 print(tabulate(ada_values, headers, tablefmt=&quot;plain&quot;))
 print(tabulate(et_values, headers, tablefmt=&quot;plain&quot;))</code></pre>
-<p>name score date_account_created 0.02 timestamp_first_active 0.01 date_first_booking 0 gender 0 age 0 signup_method 0 signup_flow 0 language 0 affiliate_channel 0 affiliate_provider 0 first_affiliate_tracked 0 signup_app 0 first_device_type 0 first_browser 0 ajax_refresh_subtotal 0 personalize 0 reviews 0 search 0 search_results 0 show 0 similar_listings 0 social_connections 0 update 0 total_secs 0 total_actions 0 name score date_account_created 0.0295823 timestamp_first_active 0.0230676 date_first_booking 0.00440131 signup_flow 1.22542e-05 show 1.20372e-05 affiliate_provider 8.89782e-06 signup_app 7.60872e-06 first_browser 6.80625e-06 language 6.22596e-06 first_device_type 3.30537e-06 first_affiliate_tracked 3.2835e-06 personalize 3.19539e-06 gender 2.54569e-06 ajax_refresh_subtotal 2.13332e-06 social_connections 1.34189e-06 similar_listings 9.80416e-07 update 8.13657e-07 search_results 4.61151e-07 reviews 2.84878e-08 age 8.54644e-09 signup_method 7.27431e-09 affiliate_channel 5.8354e-09 search 0 total_secs 0 total_actions 0</p>
+<p>name                       score
+date_account_created        0.02
+timestamp_first_active      0.01
+date_first_booking          0
+gender                      0
+age                         0
+signup_method               0
+signup_flow                 0
+language                    0
+affiliate_channel           0
+affiliate_provider          0
+first_affiliate_tracked     0
+signup_app                  0
+first_device_type           0
+first_browser               0
+ajax_refresh_subtotal       0
+personalize                 0
+reviews                     0
+search                      0
+search_results              0
+show                        0
+similar_listings            0
+social_connections          0
+update                      0
+total_secs                  0
+total_actions               0
+name                           score
+date_account_created     0.0295823
+timestamp_first_active   0.0230676
+date_first_booking       0.00440131
+signup_flow              1.22542e-05
+show                     1.20372e-05
+affiliate_provider       8.89782e-06
+signup_app               7.60872e-06
+first_browser            6.80625e-06
+language                 6.22596e-06
+first_device_type        3.30537e-06
+first_affiliate_tracked  3.2835e-06
+personalize              3.19539e-06
+gender                   2.54569e-06
+ajax_refresh_subtotal    2.13332e-06
+social_connections       1.34189e-06
+similar_listings         9.80416e-07
+update                   8.13657e-07
+search_results           4.61151e-07
+reviews                  2.84878e-08
+age                      8.54644e-09
+signup_method            7.27431e-09
+affiliate_channel        5.8354e-09
+search                   0
+total_secs               0
+total_actions            0</p>
 </div>
 
 
