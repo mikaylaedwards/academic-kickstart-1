@@ -11,7 +11,7 @@ It's no secret that I have historically leaned more towards R than Python--all o
 
 To explore the strengths of Python and gain more exposure, I have decided to start using it for my side-projects (particularly those with an ML focus). So this post begins my ventures in Python, starting with scikit's ML Pipelines...
 
-I originally completed this project on Kaggle [here](). I have attempted to convert that .ipynb file to Markdown to publish it via Hugo on my site. I'm still working out some of the conversion formatting issues, so the output may be more appealing on Kaggle. Since this site is built using R blogdown, it may not be the best platform for publishing my future projects, so I am exploring other options for publishing my Python work. 
+I originally completed this project on Kaggle [here](https://www.kaggle.com/mikaylaedwards/airbnb-ml). I have attempted to convert that .ipynb file to Markdown to publish it via Hugo on my site. I'm still working out some of the conversion formatting issues, so the output may be more appealing on Kaggle. Since this site is built using R blogdown, it may not be the best platform for publishing my future projects, so I am exploring other options for publishing my Python work. 
 
 
 In this analysis, I will try different feature engineering and modeling approaches to predict the destination a user will book on AirBnb. Because there a multiple country destinations represented in the dataset, this is a multi-class classification problem. 

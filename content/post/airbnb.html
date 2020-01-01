@@ -386,16 +386,17 @@ $(document).ready(function () {
 
 
 <pre><code>---
-title: Ventures in Python: Scikit ML Pipelines with AirBnb Bookings Data
-date: 2019-12-30
-categories:
-  - Python
-tags:
-  - Python
-output:
-  blogdown::html_page:
-    toc: true
+title: 'Ventures in Python: Scikit ML Pipelines with AirBnb Bookings Data'
+author: ''
+date: '2019-12-30'
+slug: ventures-in-python
+categories: []
+tags: []
 ---</code></pre>
+<p>It's no secret that I have historically leaned more towards R than Python--all of my previous posts (and this site) were created using R. But, as I have gained more industry experience, I have started to see its limitations. R simply does not have the same level of support or adoption in production settings. Further, it lacks a unified modeling/pre-processing framework to rival Python's scikit learn and its brilliant pipelines api.</p>
+<p>To explore the strengths of Python and gain more exposure, I have decided to start using it for my side-projects (particularly those with an ML focus). So this post begins my ventures in Python, starting with scikit's ML Pipelines...</p>
+<p>
+I originally completed this project on Kaggle [here](https://www.kaggle.com/mikaylaedwards/airbnb-ml). I have attempted to convert that .ipynb file to Markdown to publish it via Hugo on my site. I'm still working out some of the conversion formatting issues, so the output may be more appealing on Kaggle. Since this site is built using R blogdown, it may not be the best platform for publishing my future projects, so I am exploring other options for publishing my Python work.</p>
 <p>In this analysis, I will try different feature engineering and modeling approaches to predict the destination a user will book on AirBnb. Because there a multiple country destinations represented in the dataset, this is a multi-class classification problem.</p>
 <p>I was interested in this AirBnb problem because it presents an unbalanced class-representation problem: a large majority of the outcome variable is concentrated in two classes, with NDF and the US representing 58% and 29% respectively. Furthermore, the problem also includes an additional dataset (sessions) which contains additional information about user behavior on the site. I thought it would be interesting to engineer features from this data to see if it could improve the performance of a model to predict user booking destinations.</p>
 <p>To solve the unbalanced problem, I test various ensemble classifiers and hyperparameter configurations. In particular, I compare a boosted ensemble approach (using AdaBoost) with an averaging approach (using ExtraTrees). I also engineer features from the sessions data to measure performance gains.</p>
