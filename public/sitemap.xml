@@ -18,6 +18,11 @@
   </url>
   
   <url>
+    <loc>/post/ventures-in-python/</loc>
+    <lastmod>2019-12-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/comparing-recommder-system-methods-recommenderlab-and-sparklyr/</loc>
     <lastmod>2019-12-07T00:00:00+00:00</lastmod>
   </url>
@@ -87,16 +92,11 @@
   </url>
   
   <url>
-    <loc>/post/airbnb/</loc>
-    <priority>0</priority>
+    <loc>/authors/</loc>
   </url>
   
   <url>
     <loc>/author/</loc>
-  </url>
-  
-  <url>
-    <loc>/authors/</loc>
   </url>
   
   <url>
