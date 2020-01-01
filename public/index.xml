@@ -26,8 +26,7 @@
       <pubDate>Mon, 30 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/ventures-in-python/</guid>
-      <description>In this analysis, I will try different feature engineering and modeling approaches to predict the destination a user will book on AirBnb. Because there a multiple country destinations represented in the dataset, this is a multi-class classification problem.
-I was interested in this AirBnb problem because it presents an unbalanced class-representation problem: a large majority of the outcome variable is concentrated in two classes, with NDF and the US representing 58% and 29% respectively.</description>
+      <description>It&amp;rsquo;s no secret that I have historically leaned more towards R than Python&amp;ndash;all of my previous posts (and this site) were created using R. But, as I have gained more industry experience, I have started to see its limitations. R simply does not have the same level of support or adoption in production settings. Further, it lacks a unified modeling/pre-processing framework to rival Python&amp;rsquo;s scikit learn and its brilliant pipelines api.</description>
     </item>
     
     <item>
