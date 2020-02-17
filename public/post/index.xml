@@ -12,6 +12,16 @@
     
     
     <item>
+      <title>Deploying Model as API with Flask and Heroku</title>
+      <link>/post/ml-flask-deployment/</link>
+      <pubDate>Sat, 15 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ml-flask-deployment/</guid>
+      <description>Write up on this to come! For now, I have embedded my deployed model below.. it can also be accessed at https://marketing-model.herokuapp.com/
+%%html &amp;lt;iframe width=&amp;quot;1500&amp;quot; height=&amp;quot;500&amp;quot; scrolling=&amp;quot;yes&amp;quot; frameborder=&amp;quot;no&amp;quot; src=&amp;quot;https://marketing-model.herokuapp.com/&amp;quot;&amp;gt; &amp;lt;/iframe&amp;gt;    </description>
+    </item>
+    
+    <item>
       <title>Exploratory Analysis &amp; Modeling Pre-Deployment</title>
       <link>/post/pre-deployment/</link>
       <pubDate>Sat, 15 Feb 2020 00:00:00 +0000</pubDate>
