@@ -373,7 +373,7 @@ def make_plot(df,col_name):
     
     return p
 
-show(make_plot(marketing,'marketing_channel'))
+#show(make_plot(marketing,'marketing_channel'))
 ```
 
 
@@ -396,6 +396,17 @@ show(make_plot(marketing,'marketing_channel'))
   <div class="bk-root" id="8b1ae70d-9d3f-4d5c-8afb-a05a311a959c" data-root-id="1141"></div>
 
 
+
+
+
+
+```python
+%%html
+<iframe width="1500" height="500" scrolling="yes" frameborder="no"  src="https://mikayla-flask-app.herokuapp.com/"> </iframe> 
+```
+
+
+<iframe width="1500" height="500" scrolling="yes" frameborder="no"  src="https://mikayla-flask-app.herokuapp.com/"> </iframe> 
 
 
 
@@ -495,84 +506,6 @@ feature_names
            'age_group_36-45 years', 'age_group_45-55 years',
            'age_group_55+ years'], dtype=object)
 
-
-
-
-```python
-from sklearn.externals.six import StringIO  
-from IPython.display import Image  
-from sklearn.tree import export_graphviz
-import graphviz
-import pydotplus
-import os
-os.environ["PATH"] += os.pathsep + r'C:\Users\mikay\Anaconda3\pkgs\graphviz-2.38-hfd603c8_2\Library\bin\graphviz'
-
-
-dot_data = export_graphviz(dt_model['classifier'], out_file=None, feature_names = feature_names,
-                class_names = ['Converted','Not Converted'],
-                rounded = True, proportion = False, precision = 1, rotate=True,impurity=False,filled=True)
-
-pdot = pydotplus.graph_from_dot_data(dot_data)
-pdot.set_graph_defaults(size = "\"10,7\"",fontsize='14')
-graph = graphviz.Source(pdot.to_string())
-graph
-
-```
-
-    C:\Users\mikay\Anaconda3\lib\site-packages\sklearn\externals\six.py:31: DeprecationWarning: The module is deprecated in version 0.21 and will be removed in version 0.23 since we've dropped support for Python 2.7. Please rely on the official version of six (https://pypi.org/project/six/).
-      "(https://pypi.org/project/six/).", DeprecationWarning)
-    
-
-
-
-
-![svg](./marketing_19_1.svg)
-
-
-
-
-```python
-from IPython.display import SVG
-from graphviz import Source
-from IPython.display import display                               
-from ipywidgets import interactive
-
-def plot_tree(crit, split, depth, min_split, min_leaf):
-    classifier = DecisionTreeClassifier(random_state = 0 
-      , criterion = crit
-      , splitter = split
-      , max_depth = depth
-      , min_samples_split=min_split
-      , min_samples_leaf=min_leaf)
-
-    pipe = Pipeline(steps=[('preprocessor', preprocessor),('classifier', classifier)])
-    model=pipe.fit(X_train, y_train)
-    
-    feature_names = dt_model.named_steps['preprocessor'].transformers_[0][1]\
-        .named_steps['onehot'].get_feature_names(categorical_features)
-    
-    graph = Source(export_graphviz(model['classifier']
-      , out_file=None
-      , feature_names=feature_names
-      , class_names=['Converted','Not Converted']
-      , filled = True))
-   
-    display(SVG(graph.pipe(format='svg')))
-    return model['classifier']
-
-inter=interactive(plot_tree 
-   , crit = ["gini", "entropy"]
-   , split = ["best", "random"]
-   , depth=[3,4]
-   , min_split=(0.1,1)
-   , min_leaf=(1,2))
-
-
-display(inter)
-```
-
-
-    interactive(children=(Dropdown(description='crit', options=('gini', 'entropy'), value='gini'), Dropdown(descri…
 
 
 ##### Returns dataframe with one colume for y_test (actual) and one column for y_pred (predicted value)
@@ -752,41 +685,6 @@ fp.head()
 
 
 
-
-```python
-from sklearn.metrics import confusion_matrix
-
-def make_model(feat):
-    X = marketing[[feat]]
-    y = marketing['converted']
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
-    categorical_features = X_train.select_dtypes(include=['object']).columns
-
-    categorical_transformer = Pipeline(steps=[
-    ('imputer', SimpleImputer(strategy='constant', fill_value='missing')),
-    ('onehot', OneHotEncoder(handle_unknown='ignore'))])
-
-    preprocessor = ColumnTransformer(
-    transformers=[
-        ('cat', categorical_transformer, categorical_features)])
-
-    pipe = Pipeline(steps=[('preprocessor', preprocessor),('classifier', DecisionTreeClassifier(max_depth=4))])
-    model=pipe.fit(X_train, y_train)
-    y_pred = pipe.predict(X_test)
-    print("model score: ",pipe.score(X_test, y_test))
-    cm = confusion_matrix(y_test, y_pred)
-    print(cm)
-
-inter=interactive(make_model 
-   , feat = ['marketing_channel','subscribing_channel','variant','age_group'])
-
-display(inter)
-```
-
-
-    interactive(children=(Dropdown(description='feat', options=('marketing_channel', 'subscribing_channel', 'varia…
-
-
 #### Load Model & Predict on JSON Data
 - Testing to prepare for deploying as API with Flask
 
@@ -832,8 +730,3 @@ pred(query)
     False
 
 
-
-
-```python
-
-```
