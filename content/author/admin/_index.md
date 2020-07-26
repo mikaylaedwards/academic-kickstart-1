@@ -9,7 +9,7 @@ authors = ["admin"]
 superuser = true
 
 # Role/position
-role = "Data Analyst"
+role = "Data Scientist"
 
 # Organizations/Affiliations
 #   Separate multiple entries with a comma, using the form: `[ {name="Org1", url=""}, {name="Org2", url=""} ]`.
@@ -23,6 +23,8 @@ email = ""
 
 # List (academic) interests or hobbies
 interests = [
+  "Pyspark",
+  "MLOps",
   "Data Science",
   "Machine Learning"
 ]
@@ -70,5 +72,6 @@ Hi, I'm Mikayla.
 
 I'm a recent graduate of Stanford University (2019), where I studied Management Science & Engineering. 
 
-I enjoy constructing datasets using unstructured data and unconventional sources. I made this site to share the projects I'm working on and what I've learned in the process. I am interested in machine learning systems, open source development, and DevOps for data science. 
-I work in both R & Python (depending on the task) and like to go back and forth when convenient. I built this site using R blogdown, and the source code can be found on my GitHub.  
+I am interested in tooling to build production machine learning systems, including model serialization, versioning, and deployment. I currently work primarily in python and pyspark. 
+
+Note: The projects on this site are a bit outdated (in terms of the work that I currently do) and don't reflect the current tooling I use. However, I think it does show the passion I have for this field and my committment to continuous learning in whatever I do. I love open-source development and sharing the projects I have worked on. More recent examples of my work are on my Github.  
